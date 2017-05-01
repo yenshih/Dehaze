@@ -19,7 +19,7 @@ cv::Mat DehazeImpl::min_filter(cv::Mat image, const int patch) {
         const float red = *data++;
         *minified_data++ = std::fmin(std::fmin(blue, green), red);
     }
-    erode(minified_image, dark_channel, cv::Mat::ones(patch, patch, CV_32FC1));
+    cv::erode(minified_image, dark_channel, cv::Mat::ones(patch, patch, CV_32FC1));
     return dark_channel;
 }
 

@@ -1,7 +1,7 @@
 {
     "targets": [
         {
-            "target_name": "libhelloworld_jni",
+            "target_name": "libdehaze_jni",
             "type": "shared_library",
             "dependencies": [
               "./thirdparty/djinni/support-lib/support_lib.gyp:djinni_jni",
@@ -20,7 +20,7 @@
             ],
         },
         {
-            "target_name": "libhelloworld_objc",
+            "target_name": "libdehaze_objc",
             "type": 'static_library',
             "dependencies": [
               "./thirdparty/djinni/support-lib/support_lib.gyp:djinni_objc",

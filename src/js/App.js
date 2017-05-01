@@ -65,7 +65,7 @@ class App extends Component {
                     </View>
                 </TouchableOpacity>
                 <Button
-                    title="去雾"
+                    title="Dehaze"
                     onPress={this.dehazePhoto}
                 />
             </View>
