@@ -1,0 +1,6 @@
+[submodule "thirdparty/djinni"]
+	path = thirdparty/djinni
+	url = https://github.com/dropbox/djinni.git
+[submodule "thirdparty/gyp"]
+	path = thirdparty/gyp
+	url = https://chromium.googlesource.com/external/gyp.git
