@@ -8,7 +8,7 @@ std::shared_ptr<Dehaze> Dehaze::create() {
 
 DehazeImpl::DehazeImpl() {}
 
-cv::Mat DehazeImpl::min_filter(cv::Mat image, const int patch) {
+cv::Mat DehazeImpl::min_filter(cv::Mat image, const int &patch) {
     cv::Mat minified_image = cv::Mat(this->rows, this->cols, CV_32FC1);
     cv::Mat dark_channel = cv::Mat(this->rows, this->cols, CV_32FC1);
     float *data = image.ptr<float>(0);
@@ -50,8 +50,35 @@ cv::Vec<float, 3> DehazeImpl::get_atmospheric_light(cv::Mat image, cv::Mat dark_
     a[2] /= n;
     return a;
 }
+/*
+cv::Mat DehazeImpl::sort_by_dark_channel(cv::Mat image, cv::Mat dark_channel, const int low, const int high) {
+    float *offset = (float *)dark_channel.datastart;
+    float *i = low + offset;
+    float *j = high + offset;
+    const float mid = ((float *)dark_channel.data)[low + high >> 1];
+    while (i <= j) {
+        while (*i > mid) { i++; }
+        while (*j < mid) { j--; }
+        if (i <= j) {
+            float *temp = *i;
+            *i = *j;
+            *j = temp;
+            i++;
+            j--;
+        }
+    }
+    if (low < j - offset) { this->sort_by_dark_channel(image, dark_channel, low, j - offset); }
+    if (i - offset < high) { this-> }
+}
 
-cv::Mat DehazeImpl::get_transmission(cv::Mat dark_channel, double a) {
+cv::Vec<float, 3> DehazeImpl::get_atmospheric_light(cv::Mat image, cv::Mat dark_channel) {
+    cv::Vec<float, 3> atmospheric_light(0, 0, 0);
+    const int n = .001 * this->size;
+    cv::Mat sorted_image = this->sort_by_dark_channel(image, dark_channel);
+
+}
+*/
+cv::Mat DehazeImpl::get_transmission(cv::Mat dark_channel, const double &a) {
     cv::Mat transmission = cv::Mat(this->rows, this->cols, CV_32FC1);
     float *dark = dark_channel.ptr<float>(0);
     float *tran = transmission.ptr<float>(0);
@@ -78,7 +105,7 @@ cv::Mat DehazeImpl::get_dehazed_image(cv::Mat image, cv::Mat fine_transmission, 
     return dehazed_image;
 }
 
-std::string DehazeImpl::save_image(cv::Mat dehazed_image, const std::string uri) {
+std::string DehazeImpl::save_image(cv::Mat dehazed_image, const std::string &uri) {
     std::vector<int> compression_params = { CV_IMWRITE_PNG_COMPRESSION, 9 };
     std::size_t delimiter = uri.find_last_of(".");
     std::string dehazed_uri = uri.substr(0, delimiter) + "_dehazed" + uri.substr(delimiter);
@@ -86,20 +113,23 @@ std::string DehazeImpl::save_image(cv::Mat dehazed_image, const std::string uri)
     return dehazed_uri;
 }
 
-std::string DehazeImpl::dehaze_image(const std::string & uri) {
-    cv::Mat image;
-    cv::imread(uri, 1).convertTo(image, CV_32FC3, 1.0 / 255);
-    this->rows = image.rows;
-    this->cols = image.cols;
-    this->size = this->rows * this->cols;
-    constexpr int patch = 15;
-    cv::Mat dark_channel = this->min_filter(image, patch);
-    cv::Vec<float, 3> a = this->get_atmospheric_light(image, dark_channel);
-    cv::Mat transmission = this->get_transmission(dark_channel, (a[0] + a[1] + a[2]) / 3.0);
-    cv::Mat fine_transmission;
-    cv::ximgproc::guidedFilter(image, transmission, fine_transmission, 60, .0001, -1);
-    cv::Mat dehazed_image = this->get_dehazed_image(image, fine_transmission, a);
-    return this->save_image(dehazed_image, uri);
+std::string DehazeImpl::dehaze(const std::string &uri, const std::string &media) {
+    if (media == "image") {
+        cv::Mat image;
+        cv::imread(uri, 1).convertTo(image, CV_32FC3, 1.0 / 255);
+        this->rows = image.rows;
+        this->cols = image.cols;
+        this->size = this->rows * this->cols;
+        constexpr int patch = 15;
+        cv::Mat dark_channel = this->min_filter(image, patch);
+        cv::Vec<float, 3> a = this->get_atmospheric_light(image, dark_channel);
+        cv::Mat transmission = this->get_transmission(dark_channel, (a[0] + a[1] + a[2]) / 3.0);
+        cv::Mat fine_transmission;
+        cv::ximgproc::guidedFilter(image, transmission, fine_transmission, 60, .0001, -1);
+        cv::Mat dehazed_image = this->get_dehazed_image(image, fine_transmission, a);
+        return this->save_image(dehazed_image, uri);
+    }
+    return uri;
 }
 
 }

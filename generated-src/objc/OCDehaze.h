@@ -9,6 +9,7 @@
 
 + (nullable OCDehaze *)create;
 
-- (nonnull NSString *)dehazeImage:(nonnull NSString *)uri;
+- (nonnull NSString *)dehaze:(nonnull NSString *)uri
+                       media:(nonnull NSString *)media;
 
 @end

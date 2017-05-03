@@ -37,9 +37,11 @@ static_assert(__has_feature(objc_arc), "Djinni requires ARC to be enabled for th
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }
 
-- (nonnull NSString *)dehazeImage:(nonnull NSString *)uri {
+- (nonnull NSString *)dehaze:(nonnull NSString *)uri
+                       media:(nonnull NSString *)media {
     try {
-        auto objcpp_result_ = _cppRefHandle.get()->dehaze_image(::djinni::String::toCpp(uri));
+        auto objcpp_result_ = _cppRefHandle.get()->dehaze(::djinni::String::toCpp(uri),
+                                                          ::djinni::String::toCpp(media));
         return ::djinni::String::fromCpp(objcpp_result_);
     } DJINNI_TRANSLATE_EXCEPTIONS()
 }

@@ -28,12 +28,13 @@ CJNIEXPORT jobject JNICALL Java_com_dehaze_Dehaze_create(JNIEnv* jniEnv, jobject
     } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
 }
 
-CJNIEXPORT jstring JNICALL Java_com_dehaze_Dehaze_00024CppProxy_native_1dehazeImage(JNIEnv* jniEnv, jobject /*this*/, jlong nativeRef, jstring j_uri)
+CJNIEXPORT jstring JNICALL Java_com_dehaze_Dehaze_00024CppProxy_native_1dehaze(JNIEnv* jniEnv, jobject /*this*/, jlong nativeRef, jstring j_uri, jstring j_media)
 {
     try {
         DJINNI_FUNCTION_PROLOGUE1(jniEnv, nativeRef);
         const auto& ref = ::djinni::objectFromHandleAddress<::dehaze::Dehaze>(nativeRef);
-        auto r = ref->dehaze_image(::djinni::String::toCpp(jniEnv, j_uri));
+        auto r = ref->dehaze(::djinni::String::toCpp(jniEnv, j_uri),
+                             ::djinni::String::toCpp(jniEnv, j_media));
         return ::djinni::release(::djinni::String::fromCpp(jniEnv, r));
     } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
 }

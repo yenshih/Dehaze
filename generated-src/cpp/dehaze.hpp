@@ -14,7 +14,7 @@ public:
 
     static std::shared_ptr<Dehaze> create();
 
-    virtual std::string dehaze_image(const std::string & uri) = 0;
+    virtual std::string dehaze(const std::string & uri, const std::string & media) = 0;
 };
 
 }  // namespace dehaze

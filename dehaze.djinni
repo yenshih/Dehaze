@@ -1,4 +1,4 @@
 dehaze = interface +c {
 	static create(): dehaze;
-	dehaze_image(uri: string): string;
+	dehaze(uri: string, media: string): string;
 }

@@ -10,64 +10,95 @@ import {
     NativeModules,
 } from 'react-native'
 import ImagePicker from 'react-native-image-picker'
+import Video from 'react-native-video'
 
 class App extends Component {
     constructor(props) {
         super(props)
-        this.state = { source: null, imageData: null }
-        this.selectPhoto = this.selectPhoto.bind(this)
-        this.dehazePhoto = this.dehazePhoto.bind(this)
+        this.state = {
+            uri: '',
+            media: false,
+            isProcessing: false,
+        }
+        this.selectFile = this.selectFile.bind(this)
+        this.dehazeFile = this.dehazeFile.bind(this)
+        this.resetFile = this.resetFile.bind(this)
     }
 
-    selectPhoto() {
+    selectFile() {
         const options = {
             quality: 1.0,
+            videoQuality: 'high',
             maxWidth: 500,
             maxHeight: 500,
-            storageOptions: {
-                skipBackup: true,
-                path: 'images',
-            }
+            mediaType: 'mixed',
         }
-        ImagePicker.showImagePicker(options, (response) => {
-            console.log('Response = ', response)
-            if (response.didCancel) {
-                console.log('User cancelled photo picker')
-            }
-            else if (response.error) {
-                console.log('ImagePicker Error: ', response.error)
-            }
-            else if (response.customButton) {
-                console.log('User tapped custom button: ', response.customButton)
-            }
-            else {
-                const { uri } = response
-                this.setState({ source: { uri } })
+        ImagePicker.showImagePicker(options, ({ uri, error, didCancel, customButton }) => {
+            if (!error && !didCancel && !customButton) {
+                const suffix = uri.slice(uri.lastIndexOf('.') + 1).toLowerCase()
+                const isImage = ['png', 'jpg', 'jpeg', 'bmp'].includes(suffix)
+                const isVideo = ['mp4', 'mov'].includes(suffix)
+                this.setState({ uri: uri.slice(7), media: isImage && 'image' || isVideo && 'video' })
             }
         })
     }
 
-    async dehazePhoto() {
-        const { source: { uri } } = this.state
-        console.log(uri)
-        const dehazedUri = uri && await NativeModules.Dehaze.init(uri)
-        console.log(dehazedUri)
-        this.setState({ source: { uri: dehazedUri } })
+    async dehazeFile() {
+        const { uri, media, isProcessing } = this.state
+        if (!isProcessing) {
+            this.setState(state => ({ ...state, isProcessing: true }))
+            const dehazedUri = await NativeModules.Dehaze.run(uri, media)
+            this.setState({ uri: dehazedUri, isProcessing: false })
+        }
+    }
+
+    resetFile() {
+        this.setState({ uri: '', media: false })
+    }
+
+    renderDisplay() {
+        const { uri, media } = this.state
+        switch (true) {
+            case media === 'image': return (
+                <Image
+                    source={{ isStatic: true, uri }}
+                    resizeMode="contain"
+                    style={styles.displayContent}
+                />
+            )
+            case media === 'video': return (
+                <Video
+                    source={{ uri }}
+                    resizeMode="contain"
+                    muted={false}
+                    style={styles.displayContent}
+                />
+            )
+            default: return <Text style={styles.hint}>{uri ? 'Invalid file format' : 'Select a photo or video'}</Text>
+        }
     }
 
     render() {
-        const { source, imageData } = this.state
+        const { uri, media, isProcessing } = this.state
         return (
             <View style={styles.container}>
-                <TouchableOpacity onPress={this.selectPhoto}>
-                    <View style={[styles.avatar, styles.avatarContainer]}>
-                        {source ? <Image source={source} /> : <Text>Select a Photo</Text>}
-                    </View>
+                <TouchableOpacity onPress={this.selectFile}>
+                    {this.renderDisplay()}
                 </TouchableOpacity>
-                <Button
-                    title="Dehaze"
-                    onPress={this.dehazePhoto}
-                />
+                {media && (
+                    <Button
+                        title={isProcessing ? 'Processing...' : 'Dehaze'}
+                        onPress={this.dehazeFile}
+                        color="#71CA58"
+                    />
+                )}
+                {media && (
+                    <Button
+                        title="Reset"
+                        onPress={this.resetFile}
+                        color="#71CA58"
+                    />
+                )}
             </View>
         )
     }
@@ -80,17 +111,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
-    avatarContainer: {
-        borderColor: '#9B9B9B',
-        borderWidth: 1 / PixelRatio.get(),
-        justifyContent: 'center',
-        alignItems: 'center'
+    displayContent: {
+        flex: 1,
+        width: 360,
+        maxHeight: 480,
+        backgroundColor: 'transparent',
     },
-    avatar: {
-        borderRadius: 75,
-        width: 150,
-        height: 150
-    }
+    hint: {
+        height: 48,
+        fontSize: 24,
+        color: "#51BAF2",
+    },
 });
 
 export default App

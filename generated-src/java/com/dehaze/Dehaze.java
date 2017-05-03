@@ -6,7 +6,7 @@ package com.dehaze;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class Dehaze {
-    public abstract String dehazeImage(String uri);
+    public abstract String dehaze(String uri, String media);
 
     public static native Dehaze create();
 
@@ -34,11 +34,11 @@ public abstract class Dehaze {
         }
 
         @Override
-        public String dehazeImage(String uri)
+        public String dehaze(String uri, String media)
         {
             assert !this.destroyed.get() : "trying to use a destroyed object";
-            return native_dehazeImage(this.nativeRef, uri);
+            return native_dehaze(this.nativeRef, uri, media);
         }
-        private native String native_dehazeImage(long _nativeRef, String uri);
+        private native String native_dehaze(long _nativeRef, String uri, String media);
     }
 }

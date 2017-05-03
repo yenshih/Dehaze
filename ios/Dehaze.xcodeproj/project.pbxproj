@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -36,12 +35,14 @@
 		2DCD954D1E0B4F2C00145EB5 /* DehazeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DehazeTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		8B2A5F7B1EB79C810007812E /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2A5F7A1EB79C810007812E /* opencv2.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8BB68C291EB873910060DFFC /* opencv2.framework in Resources */ = {isa = PBXBuildFile; fileRef = 8BB68C281EB873910060DFFC /* opencv2.framework */; };
 		8BCCD02F1EAE39F3007A27F1 /* Dehaze.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCD02E1EAE39F3007A27F1 /* Dehaze.m */; };
 		8BCCD0C41EAF2B3E007A27F1 /* libdjinni_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCCD0541EAF21E2007A27F1 /* libdjinni_objc.a */; };
 		8BCCD0CC1EAF2B93007A27F1 /* OCDehaze+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCD0CB1EAF2B93007A27F1 /* OCDehaze+Private.mm */; };
 		8BCCD0CF1EAF2BB5007A27F1 /* dehaze_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCD0CD1EAF2BB5007A27F1 /* dehaze_impl.cpp */; };
-		8BCCD3C61EB04CD6007A27F1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCCD3C51EB04CD6007A27F1 /* opencv2.framework */; };
 		A84E9DCB96DA4B22AD88D95F /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 811E0D9E7D4A4A6398933E6C /* libRNImagePicker.a */; };
+		9159C9EDD6EF41A79173C8C9 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E88E868171147AEA567EB7C /* libRCTVideo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,19 +235,19 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		8BCCD0441EAF21D9007A27F1 /* PBXContainerItemProxy */ = {
+		8B2A5F491EB7833F0007812E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8BCCD03E1EAF21D9007A27F1 /* libdehaze.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 6A7DE91795462A323CE3EBF1;
-			remoteInfo = libhelloworld_jni;
+			remoteGlobalIDString = E791FEA56ED5913203485668;
+			remoteInfo = libdehaze_jni;
 		};
-		8BCCD0461EAF21D9007A27F1 /* PBXContainerItemProxy */ = {
+		8B2A5F4B1EB7833F0007812E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8BCCD03E1EAF21D9007A27F1 /* libdehaze.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 3F9BEE9B99D981168BCC3FEE;
-			remoteInfo = libhelloworld_objc;
+			remoteGlobalIDString = 40EEE440BE5C7CDE4D8350BB;
+			remoteInfo = libdehaze_objc;
 		};
 		8BCCD04F1EAF21E2007A27F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -305,6 +306,8 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		811E0D9E7D4A4A6398933E6C /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8B2A5F7A1EB79C810007812E /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../usr/local/opencv/opencv2.framework; sourceTree = "<group>"; };
+		8BB68C281EB873910060DFFC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../usr/local/opencv/opencv2.framework; sourceTree = "<group>"; };
 		8BCCD02D1EAE39F3007A27F1 /* Dehaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dehaze.h; sourceTree = "<group>"; };
 		8BCCD02E1EAE39F3007A27F1 /* Dehaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dehaze.m; sourceTree = "<group>"; };
 		8BCCD03E1EAF21D9007A27F1 /* libdehaze.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libdehaze.xcodeproj; path = ../build_ios/libdehaze.xcodeproj; sourceTree = "<group>"; };
@@ -315,7 +318,8 @@
 		8BCCD0CB1EAF2B93007A27F1 /* OCDehaze+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "OCDehaze+Private.mm"; path = "../generated-src/objc/OCDehaze+Private.mm"; sourceTree = "<group>"; };
 		8BCCD0CD1EAF2BB5007A27F1 /* dehaze_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dehaze_impl.cpp; path = ../src/cpp/dehaze_impl.cpp; sourceTree = "<group>"; };
 		8BCCD0CE1EAF2BB5007A27F1 /* dehaze_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = dehaze_impl.hpp; path = ../src/cpp/dehaze_impl.hpp; sourceTree = "<group>"; };
-		8BCCD3C51EB04CD6007A27F1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../usr/local/opencv/opencv2.framework; sourceTree = "<group>"; };
+		744A3B11FF224AF48168C847 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; name = "RCTVideo.xcodeproj"; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		8E88E868171147AEA567EB7C /* libRCTVideo.a */ = {isa = PBXFileReference; name = "libRCTVideo.a"; path = "libRCTVideo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,12 +343,13 @@
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
-				8BCCD3C61EB04CD6007A27F1 /* opencv2.framework in Frameworks */,
+				8B2A5F7B1EB79C810007812E /* opencv2.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				A84E9DCB96DA4B22AD88D95F /* libRNImagePicker.a in Frameworks */,
+				9159C9EDD6EF41A79173C8C9 /* libRCTVideo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +527,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				70AA384DD7F04A3C82D6DFF0 /* RNImagePicker.xcodeproj */,
+				744A3B11FF224AF48168C847 /* RCTVideo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -538,6 +544,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8BB68C281EB873910060DFFC /* opencv2.framework */,
 				13B07FAE1A68108700A75B9A /* Dehaze */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* DehazeTests */,
@@ -562,7 +569,7 @@
 		8BCCD0311EAE411C007A27F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8BCCD3C51EB04CD6007A27F1 /* opencv2.framework */,
+				8B2A5F7A1EB79C810007812E /* opencv2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -570,8 +577,8 @@
 		8BCCD03F1EAF21D9007A27F1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BCCD0451EAF21D9007A27F1 /* libhelloworld_jni.dylib */,
-				8BCCD0471EAF21D9007A27F1 /* libhelloworld_objc.a */,
+				8B2A5F4A1EB7833F0007812E /* libdehaze_jni.dylib */,
+				8B2A5F4C1EB7833F0007812E /* libdehaze_objc.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -948,18 +955,18 @@
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8BCCD0451EAF21D9007A27F1 /* libhelloworld_jni.dylib */ = {
+		8B2A5F4A1EB7833F0007812E /* libdehaze_jni.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libhelloworld_jni.dylib;
-			remoteRef = 8BCCD0441EAF21D9007A27F1 /* PBXContainerItemProxy */;
+			path = libdehaze_jni.dylib;
+			remoteRef = 8B2A5F491EB7833F0007812E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8BCCD0471EAF21D9007A27F1 /* libhelloworld_objc.a */ = {
+		8B2A5F4C1EB7833F0007812E /* libdehaze_objc.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libhelloworld_objc.a;
-			remoteRef = 8BCCD0461EAF21D9007A27F1 /* PBXContainerItemProxy */;
+			path = libdehaze_objc.a;
+			remoteRef = 8B2A5F4B1EB7833F0007812E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		8BCCD0501EAF21E2007A27F1 /* libdjinni_jni.a */ = {
@@ -1006,6 +1013,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				8BB68C291EB873910060DFFC /* opencv2.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1134,12 +1142,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = DehazeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1159,12 +1169,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = DehazeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1185,6 +1197,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/opencv,
+					"/usr/local/opencv/build/build-iphonesimulator/lib/Release",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1192,9 +1205,10 @@
 					"$(SRCROOT)/../generated-src/objc",
 					"$(SRCROOT)/../thirdparty/djinni/support-lib/objc",
 					"/usr/local/opencv/build/build-x86_64-iphonesimulator/install/include/**",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = Dehaze/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1218,6 +1232,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/opencv,
+					"/usr/local/opencv/build/build-iphonesimulator/lib/Release",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1225,9 +1240,10 @@
 					"$(SRCROOT)/../generated-src/objc",
 					"$(SRCROOT)/../thirdparty/djinni/support-lib/objc",
 					"/usr/local/opencv/build/build-x86_64-iphonesimulator/install/include/**",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = Dehaze/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1258,11 +1274,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = "Dehaze-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1292,11 +1310,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = "Dehaze-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1327,6 +1347,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Dehaze-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1351,6 +1372,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Dehaze-tvOSTests";
