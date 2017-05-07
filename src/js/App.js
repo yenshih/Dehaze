@@ -48,6 +48,7 @@ class App extends Component {
         if (!isProcessing) {
             this.setState(state => ({ ...state, isProcessing: true }))
             const dehazedUri = await NativeModules.Dehaze.run(uri, media)
+            console.log(dehazedUri)
             this.setState({ uri: dehazedUri, isProcessing: false })
         }
     }
@@ -96,7 +97,7 @@ class App extends Component {
                     <Button
                         title="Reset"
                         onPress={this.resetFile}
-                        color="#71CA58"
+                        color="#FD6461"
                     />
                 )}
             </View>

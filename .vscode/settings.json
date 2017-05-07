@@ -45,6 +45,8 @@
         "ratio": "cpp",
         "system_error": "cpp",
         "thread": "cpp",
-        "typeindex": "cpp"
-    }
+        "typeindex": "cpp",
+        "complex": "cpp"
+    },
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
