@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -41,8 +42,8 @@
 		8BCCD0C41EAF2B3E007A27F1 /* libdjinni_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCCD0541EAF21E2007A27F1 /* libdjinni_objc.a */; };
 		8BCCD0CC1EAF2B93007A27F1 /* OCDehaze+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCD0CB1EAF2B93007A27F1 /* OCDehaze+Private.mm */; };
 		8BCCD0CF1EAF2BB5007A27F1 /* dehaze_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCD0CD1EAF2BB5007A27F1 /* dehaze_impl.cpp */; };
-		A84E9DCB96DA4B22AD88D95F /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 811E0D9E7D4A4A6398933E6C /* libRNImagePicker.a */; };
 		9159C9EDD6EF41A79173C8C9 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E88E868171147AEA567EB7C /* libRCTVideo.a */; };
+		A84E9DCB96DA4B22AD88D95F /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 811E0D9E7D4A4A6398933E6C /* libRNImagePicker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +250,13 @@
 			remoteGlobalIDString = 40EEE440BE5C7CDE4D8350BB;
 			remoteInfo = libdehaze_objc;
 		};
+		8B77D2D21EC2237100A6E97A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 744A3B11FF224AF48168C847 /* RCTVideo.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTVideo;
+		};
 		8BCCD04F1EAF21E2007A27F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8BCCD0481EAF21E2007A27F1 /* support_lib.xcodeproj */;
@@ -303,6 +311,7 @@
 		2D02E4901E0B4A5D006451C7 /* Dehaze-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dehaze-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		70AA384DD7F04A3C82D6DFF0 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
+		744A3B11FF224AF48168C847 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		811E0D9E7D4A4A6398933E6C /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -318,8 +327,7 @@
 		8BCCD0CB1EAF2B93007A27F1 /* OCDehaze+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "OCDehaze+Private.mm"; path = "../generated-src/objc/OCDehaze+Private.mm"; sourceTree = "<group>"; };
 		8BCCD0CD1EAF2BB5007A27F1 /* dehaze_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dehaze_impl.cpp; path = ../src/cpp/dehaze_impl.cpp; sourceTree = "<group>"; };
 		8BCCD0CE1EAF2BB5007A27F1 /* dehaze_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = dehaze_impl.hpp; path = ../src/cpp/dehaze_impl.hpp; sourceTree = "<group>"; };
-		744A3B11FF224AF48168C847 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; name = "RCTVideo.xcodeproj"; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		8E88E868171147AEA567EB7C /* libRCTVideo.a */ = {isa = PBXFileReference; name = "libRCTVideo.a"; path = "libRCTVideo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		8E88E868171147AEA567EB7C /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,6 +574,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8B77D2BD1EC2237100A6E97A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B77D2D31EC2237100A6E97A /* libRCTVideo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8BCCD0311EAE411C007A27F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,6 +767,10 @@
 				{
 					ProductGroup = 00C302E01ABCB9EE00DB3ED1 /* Products */;
 					ProjectRef = 00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */;
+				},
+				{
+					ProductGroup = 8B77D2BD1EC2237100A6E97A /* Products */;
+					ProjectRef = 744A3B11FF224AF48168C847 /* RCTVideo.xcodeproj */;
 				},
 				{
 					ProductGroup = 139FDEE71B06529A00C62182 /* Products */;
@@ -967,6 +987,13 @@
 			fileType = archive.ar;
 			path = libdehaze_objc.a;
 			remoteRef = 8B2A5F4B1EB7833F0007812E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B77D2D31EC2237100A6E97A /* libRCTVideo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTVideo.a;
+			remoteRef = 8B77D2D21EC2237100A6E97A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		8BCCD0501EAF21E2007A27F1 /* libdjinni_jni.a */ = {

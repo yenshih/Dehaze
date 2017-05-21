@@ -31,7 +31,7 @@ class App extends Component {
             videoQuality: 'high',
             maxWidth: 500,
             maxHeight: 500,
-            mediaType: 'mixed',
+            mediaType: 'image',
         }
         ImagePicker.showImagePicker(options, ({ uri, error, didCancel, customButton }) => {
             if (!error && !didCancel && !customButton) {
@@ -75,7 +75,7 @@ class App extends Component {
                     style={styles.displayContent}
                 />
             )
-            default: return <Text style={styles.hint}>{uri ? 'Invalid file format' : 'Select a photo or video'}</Text>
+            default: return <Text style={styles.hint}>{uri ? 'Invalid file format' : 'Select a photo'}</Text>
         }
     }
 
