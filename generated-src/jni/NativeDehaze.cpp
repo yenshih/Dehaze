@@ -6,12 +6,12 @@
 
 namespace djinni_generated {
 
-NativeDehaze::NativeDehaze() : ::djinni::JniInterface<::dehaze::Dehaze, NativeDehaze>("com/dehaze/Dehaze$CppProxy") {}
+NativeDehaze::NativeDehaze() : ::djinni::JniInterface<::dehaze::Dehaze, NativeDehaze>("pers/yenshih/dehaze/Dehaze$CppProxy") {}
 
 NativeDehaze::~NativeDehaze() = default;
 
 
-CJNIEXPORT void JNICALL Java_com_dehaze_Dehaze_00024CppProxy_nativeDestroy(JNIEnv* jniEnv, jobject /*this*/, jlong nativeRef)
+CJNIEXPORT void JNICALL Java_pers_yenshih_dehaze_Dehaze_00024CppProxy_nativeDestroy(JNIEnv* jniEnv, jobject /*this*/, jlong nativeRef)
 {
     try {
         DJINNI_FUNCTION_PROLOGUE1(jniEnv, nativeRef);
@@ -19,7 +19,7 @@ CJNIEXPORT void JNICALL Java_com_dehaze_Dehaze_00024CppProxy_nativeDestroy(JNIEn
     } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, )
 }
 
-CJNIEXPORT jobject JNICALL Java_com_dehaze_Dehaze_create(JNIEnv* jniEnv, jobject /*this*/)
+CJNIEXPORT jobject JNICALL Java_pers_yenshih_dehaze_Dehaze_create(JNIEnv* jniEnv, jobject /*this*/)
 {
     try {
         DJINNI_FUNCTION_PROLOGUE0(jniEnv);
@@ -28,7 +28,7 @@ CJNIEXPORT jobject JNICALL Java_com_dehaze_Dehaze_create(JNIEnv* jniEnv, jobject
     } JNI_TRANSLATE_EXCEPTIONS_RETURN(jniEnv, 0 /* value doesn't matter */)
 }
 
-CJNIEXPORT jstring JNICALL Java_com_dehaze_Dehaze_00024CppProxy_native_1dehaze(JNIEnv* jniEnv, jobject /*this*/, jlong nativeRef, jstring j_uri, jstring j_media)
+CJNIEXPORT jstring JNICALL Java_pers_yenshih_dehaze_Dehaze_00024CppProxy_native_1dehaze(JNIEnv* jniEnv, jobject /*this*/, jlong nativeRef, jstring j_uri, jstring j_media)
 {
     try {
         DJINNI_FUNCTION_PROLOGUE1(jniEnv, nativeRef);
