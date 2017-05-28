@@ -110,6 +110,24 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    sourceSets {
+        main {
+            java {
+                srcDirs = [
+                        "src/main/java",
+                        "../../generated-src/java"
+                ]
+            }
+            jni {
+                srcDirs = [
+                        "../../thirdparty/djinni/support-lib/jni",
+                        "../../generated-src/cpp",
+                        "../../generated-src/jni",
+                        "../../src/cpp"
+                ]
+            }
+        }
+    }
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -121,6 +139,11 @@ android {
                 output.versionCodeOverride =
                         versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
             }
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path "../../GypAndroid.mk"
         }
     }
 }

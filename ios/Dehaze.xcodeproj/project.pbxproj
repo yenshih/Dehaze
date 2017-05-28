@@ -25,7 +25,7 @@
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.mm */; };
-		2D02E4C21E0B4AEC006451C7 /* libRCTAnimation-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157351DD0AC6500FF2AA8 /* libRCTAnimation-tvOS.a */; };
+		2D02E4C21E0B4AEC006451C7 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		2D02E4C31E0B4AEC006451C7 /* libRCTImage-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */; };
 		2D02E4C41E0B4AEC006451C7 /* libRCTLinking-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E881DF850E9000B6D8A /* libRCTLinking-tvOS.a */; };
 		2D02E4C51E0B4AEC006451C7 /* libRCTNetwork-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E8C1DF850E9000B6D8A /* libRCTNetwork-tvOS.a */; };
@@ -37,8 +37,8 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8B2A5F7B1EB79C810007812E /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2A5F7A1EB79C810007812E /* opencv2.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8B2EC4CE1EDAF81000DFA675 /* Dehaze.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2EC4CD1EDAF81000DFA675 /* Dehaze.m */; };
 		8BB68C291EB873910060DFFC /* opencv2.framework in Resources */ = {isa = PBXBuildFile; fileRef = 8BB68C281EB873910060DFFC /* opencv2.framework */; };
-		8BCCD02F1EAE39F3007A27F1 /* Dehaze.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCD02E1EAE39F3007A27F1 /* Dehaze.m */; };
 		8BCCD0C41EAF2B3E007A27F1 /* libdjinni_objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCCD0541EAF21E2007A27F1 /* libdjinni_objc.a */; };
 		8BCCD0CC1EAF2B93007A27F1 /* OCDehaze+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCD0CB1EAF2B93007A27F1 /* OCDehaze+Private.mm */; };
 		8BCCD0CF1EAF2BB5007A27F1 /* dehaze_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCD0CD1EAF2BB5007A27F1 /* dehaze_impl.cpp */; };
@@ -316,9 +316,9 @@
 		811E0D9E7D4A4A6398933E6C /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8B2A5F7A1EB79C810007812E /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../usr/local/opencv/opencv2.framework; sourceTree = "<group>"; };
+		8B2EC4CC1EDAF81000DFA675 /* Dehaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dehaze.h; path = Dehaze/Dehaze.h; sourceTree = "<group>"; };
+		8B2EC4CD1EDAF81000DFA675 /* Dehaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dehaze.m; path = Dehaze/Dehaze.m; sourceTree = "<group>"; };
 		8BB68C281EB873910060DFFC /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../../usr/local/opencv/opencv2.framework; sourceTree = "<group>"; };
-		8BCCD02D1EAE39F3007A27F1 /* Dehaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dehaze.h; sourceTree = "<group>"; };
-		8BCCD02E1EAE39F3007A27F1 /* Dehaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dehaze.m; sourceTree = "<group>"; };
 		8BCCD03E1EAF21D9007A27F1 /* libdehaze.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libdehaze.xcodeproj; path = ../build_ios/libdehaze.xcodeproj; sourceTree = "<group>"; };
 		8BCCD0481EAF21E2007A27F1 /* support_lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = support_lib.xcodeproj; path = "../build_ios/thirdparty/djinni/support-lib/support_lib.xcodeproj"; sourceTree = "<group>"; };
 		8BCCD0A11EAF2643007A27F1 /* dehaze.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = dehaze.hpp; path = "../generated-src/cpp/dehaze.hpp"; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */,
-				2D02E4C21E0B4AEC006451C7 /* libRCTAnimation-tvOS.a in Frameworks */,
+				2D02E4C21E0B4AEC006451C7 /* libRCTAnimation.a in Frameworks */,
 				2D02E4C31E0B4AEC006451C7 /* libRCTImage-tvOS.a in Frameworks */,
 				2D02E4C41E0B4AEC006451C7 /* libRCTLinking-tvOS.a in Frameworks */,
 				2D02E4C51E0B4AEC006451C7 /* libRCTNetwork-tvOS.a in Frameworks */,
@@ -466,6 +466,8 @@
 		13B07FAE1A68108700A75B9A /* Dehaze */ = {
 			isa = PBXGroup;
 			children = (
+				8B2EC4CC1EDAF81000DFA675 /* Dehaze.h */,
+				8B2EC4CD1EDAF81000DFA675 /* Dehaze.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -473,8 +475,6 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.mm */,
-				8BCCD02D1EAE39F3007A27F1 /* Dehaze.h */,
-				8BCCD02E1EAE39F3007A27F1 /* Dehaze.m */,
 				8BCCD0A11EAF2643007A27F1 /* dehaze.hpp */,
 				8BCCD0CD1EAF2BB5007A27F1 /* dehaze_impl.cpp */,
 				8BCCD0CE1EAF2BB5007A27F1 /* dehaze_impl.hpp */,
@@ -504,7 +504,7 @@
 			isa = PBXGroup;
 			children = (
 				5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */,
-				5E9157351DD0AC6500FF2AA8 /* libRCTAnimation-tvOS.a */,
+				5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -954,10 +954,10 @@
 			remoteRef = 5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5E9157351DD0AC6500FF2AA8 /* libRCTAnimation-tvOS.a */ = {
+		5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = "libRCTAnimation-tvOS.a";
+			path = libRCTAnimation.a;
 			remoteRef = 5E9157341DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -1106,7 +1106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BCCD0CC1EAF2B93007A27F1 /* OCDehaze+Private.mm in Sources */,
-				8BCCD02F1EAE39F3007A27F1 /* Dehaze.m in Sources */,
+				8B2EC4CE1EDAF81000DFA675 /* Dehaze.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.mm in Sources */,
 				8BCCD0CF1EAF2BB5007A27F1 /* dehaze_impl.cpp in Sources */,
