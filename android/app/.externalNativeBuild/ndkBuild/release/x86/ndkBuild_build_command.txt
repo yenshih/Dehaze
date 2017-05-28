@@ -1,8 +1,8 @@
 Executable : /Users/colour/Library/Android/sdk/ndk-bundle/ndk-build
 arguments : 
 NDK_PROJECT_PATH=null
-APP_BUILD_SCRIPT=/Users/colour/Desktop/Dehaze/GypAndroid.mk
-NDK_APPLICATION_MK=/Users/colour/Desktop/Dehaze/Application.mk
+APP_BUILD_SCRIPT=/Users/colour/Desktop/Dehaze/android/app/Android.mk
+NDK_APPLICATION_MK=/Users/colour/Desktop/Dehaze/android/app/Application.mk
 APP_ABI=x86
 NDK_ALL_ABIS=x86
 NDK_DEBUG=0
