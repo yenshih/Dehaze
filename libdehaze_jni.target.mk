@@ -2,9 +2,10 @@
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE := libdehaze_jni
 LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+
 LOCAL_MODULE_TARGET_ARCH := $(TARGET_$(GYP_VAR_PREFIX)ARCH)
 LOCAL_SDK_VERSION := 19
 gyp_intermediate_dir := $(call local-intermediates-dir,,$(GYP_VAR_PREFIX))
@@ -89,7 +90,7 @@ LOCAL_CPPFLAGS_Release := \
 	-std=c++11 \
 	-frtti \
 	-fexceptions \
-	-Wno-literal-suffix
+	-Wno-literal-range
 
 
 LOCAL_CFLAGS := $(MY_CFLAGS_$(GYP_CONFIGURATION)) $(MY_DEFS_$(GYP_CONFIGURATION))
@@ -117,4 +118,11 @@ LOCAL_STATIC_LIBRARIES := \
 # Enable grouping to fix circular references
 LOCAL_GROUP_STATIC_LIBRARIES := true
 LOCAL_PRELINK_MODULE := false
+
+OPENCV_INSTALL_MODULES:=on
+OPENCV_LIB_TYPE:=STATIC
+include /usr/local/opencv/OpenCV-android-sdk/sdk/native/jni/OpenCV.mk
+
+LOCAL_MODULE := libdehaze_jni
+
 include $(BUILD_SHARED_LIBRARY)

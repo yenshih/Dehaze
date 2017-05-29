@@ -2,9 +2,10 @@
 #
 .DS_Store
 
-# Xcode
+# iOS/Xcode
 #
 build/
+build_ios/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -35,6 +36,11 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+
+# Djinni
+#
+thirdparty/
+generated-src/
 
 # BUCK
 buck-out/
