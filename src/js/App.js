@@ -38,7 +38,7 @@ class App extends Component {
                 const suffix = uri.slice(uri.lastIndexOf('.') + 1).toLowerCase()
                 const isImage = ['png', 'jpg', 'jpeg', 'bmp'].includes(suffix)
                 const isVideo = ['mp4', 'mov'].includes(suffix)
-                this.setState({ uri: uri.slice(7), media: isImage && 'image' || isVideo && 'video' })
+                this.setState({ uri, media: isImage && 'image' || isVideo && 'video' })
             }
         })
     }
@@ -48,7 +48,6 @@ class App extends Component {
         if (!isProcessing) {
             this.setState(state => ({ ...state, isProcessing: true }))
             const dehazedUri = await NativeModules.Dehaze.run(uri, media)
-            console.log(dehazedUri)
             this.setState({ uri: dehazedUri, isProcessing: false })
         }
     }

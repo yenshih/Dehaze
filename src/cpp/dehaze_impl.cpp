@@ -44,16 +44,16 @@ cv::Vec3f DehazeImpl::get_atmospheric_light(float *const dark_channel_start, con
     } else if (next_n > 0) {
         return get_atmospheric_light(dark_channel_start, offset, next_low, high, next_n, swap_stack);
     } else {
-        float atmospheric_blue_light;
-        float atmospheric_green_light;
-        float atmospheric_red_light;
+        float atmospheric_blue_light = 0;
+        float atmospheric_green_light = 0;
+        float atmospheric_red_light = 0;
         float max_gray_data = 0;
         const float *data = dark_channel_start + offset;
         for (uint32_t i = 0; i < n; i++) {
             const float blue = *data++;
             const float green = *data++;
             const float red = *data++;
-            const float gray_data = .299 * red + .587 * green + .114 * blue;
+            const float gray_data = (299 * red + 587 * green + 114 * blue) / 1000;
             if (gray_data > max_gray_data) {
                 max_gray_data = gray_data;
                 atmospheric_blue_light = blue;
@@ -159,6 +159,10 @@ cv::Mat DehazeImpl::get_dehazed_image(const cv::Mat &source_image) {
     return image;
 }
 
+std::string DehazeImpl::trim_uri_protocal(const std::string &uri) {
+    return uri.find_first_of("file://") == std::string::npos ? uri : uri.substr(7);
+}
+
 std::string DehazeImpl::get_dehazed_uri(const std::string &uri) {
     std::size_t delimiter = uri.find_last_of(".");
     return uri.substr(0, delimiter) + "_dehazed" + uri.substr(delimiter);
@@ -167,13 +171,13 @@ std::string DehazeImpl::get_dehazed_uri(const std::string &uri) {
 std::string DehazeImpl::save_dehazed_image(const cv::Mat &dehazed_image, const std::string &uri) {
     std::vector<int32_t> compression_params = { CV_IMWRITE_PNG_COMPRESSION, 9 };
     std::string dehazed_uri = this->get_dehazed_uri(uri);
-    cv::imwrite(dehazed_uri, dehazed_image, compression_params);
+    cv::imwrite(this->trim_uri_protocal(dehazed_uri), dehazed_image, compression_params);
     return dehazed_uri;
 }
 
 std::string DehazeImpl::dehaze(const std::string &uri, const std::string &media) {
     if (media == "image") {
-        cv::Mat source_image = cv::imread(uri, 1);
+        cv::Mat source_image = cv::imread(this->trim_uri_protocal(uri), 1);
         cv::Mat dehazed_image = this->get_dehazed_image(source_image);
         return this->save_dehazed_image(dehazed_image, uri);
     }

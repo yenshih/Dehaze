@@ -25,6 +25,7 @@ class DehazeImpl: public dehaze::Dehaze {
         cv::Mat get_fine_transmission(const cv::Mat &image, const cv::Mat &transmission);
         void recover_dehazed_image(cv::Mat &image, const cv::Mat &fine_transmission, const cv::Vec3f &atmospheric_light);
         cv::Mat get_dehazed_image(const cv::Mat &source_image);
+        std::string trim_uri_protocal(const std::string &uri);
         std::string get_dehazed_uri(const std::string &uri);
         std::string save_dehazed_image(const cv::Mat &dehazed_image, const std::string &uri);
 };
