@@ -79,8 +79,9 @@ cv::Mat DehazeImpl::get_transmission(const cv::Mat &dark_channel, const cv::Vec3
     const float *dark = dark_channel.ptr<float>();
     float *tran = transmission.ptr<float>();
     for (uint32_t i = 0; i < this->size; i++) {
+        const float diff = std::fabs(*dark - approx_atmospheric_light);
         float data = 1 - .95 * (*dark++) / approx_atmospheric_light;
-        data <= .2 && (data = .5);
+        diff < .2 && (data = .2 * data / diff);
         data >= 1 && (data = 1.0);
         *tran++ = data;
     }
