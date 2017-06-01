@@ -17,7 +17,7 @@ class DehazeImpl: public dehaze::Dehaze {
         uint32_t size;
         cv::Mat get_dark_channel(const cv::Mat &image, const uint32_t patch);
         cv::Vec3f get_atmospheric_light(float *const dark_channel_start, const int32_t offset, const uint32_t low, const uint32_t high, const uint32_t n, std::vector<std::pair<float *, float *>> &swap_stack);
-        cv::Mat get_transmission(const cv::Mat &dark_channel, const cv::Vec3f &atomspheric_light);
+        cv::Mat get_transmission(const cv::Mat &image, const cv::Mat &dark_channel, const cv::Vec3f &atomspheric_light);
         cv::Mat subsample(const cv::Mat &image, const uint32_t sampling_ratio);
         cv::Mat upsample(const cv::Mat &image, const uint32_t sampling_ratio);
         cv::Mat mean_filter(const cv::Mat &image, const uint32_t radius);

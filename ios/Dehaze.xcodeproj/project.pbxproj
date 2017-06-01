@@ -1224,14 +1224,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/opencv,
-					"/usr/local/opencv/build/build-iphonesimulator/lib/Release",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../generated-src/objc",
 					"$(SRCROOT)/../thirdparty/djinni/support-lib/objc",
-					"/usr/local/opencv/build/build-x86_64-iphonesimulator/install/include/**",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = Dehaze/Info.plist;
@@ -1259,14 +1257,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/opencv,
-					"/usr/local/opencv/build/build-iphonesimulator/lib/Release",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../generated-src/objc",
 					"$(SRCROOT)/../thirdparty/djinni/support-lib/objc",
-					"/usr/local/opencv/build/build-x86_64-iphonesimulator/install/include/**",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
 				);
 				INFOPLIST_FILE = Dehaze/Info.plist;

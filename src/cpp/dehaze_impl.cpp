@@ -73,17 +73,41 @@ cv::Vec3f DehazeImpl::get_atmospheric_light(float *const dark_channel_start, con
     }
 }
 
-cv::Mat DehazeImpl::get_transmission(const cv::Mat &dark_channel, const cv::Vec3f &atomspheric_light) {
-    float approx_atmospheric_light = (atomspheric_light[0] + atomspheric_light[1] + atomspheric_light[2]) / 3;
-    cv::Mat transmission = cv::Mat(this->rows, this->cols, CV_32FC1);
+cv::Mat DehazeImpl::get_transmission(const cv::Mat &image, const cv::Mat &dark_channel, const cv::Vec3f &atmospheric_light) {
+    const auto sqr = [](float x)->float { return x * x; };
+    float approx_atmospheric_light = (atmospheric_light[0] + atmospheric_light[1] + atmospheric_light[2]) / 3;
+    const float variance = (sqr(atmospheric_light[0] - approx_atmospheric_light) + sqr(atmospheric_light[1] - approx_atmospheric_light) + sqr(atmospheric_light[2] - approx_atmospheric_light)) / 3;
+    cv::Mat transmission(this->rows, this->cols, CV_32FC1);
     const float *dark = dark_channel.ptr<float>();
-    float *tran = transmission.ptr<float>();
-    for (uint32_t i = 0; i < this->size; i++) {
-        const float diff = std::fabs(*dark - approx_atmospheric_light);
-        float data = 1 - .95 * (*dark++) / approx_atmospheric_light;
-        diff < .2 && (data = .2 * data / diff);
-        data >= 1 && (data = 1.0);
-        *tran++ = data;
+    constexpr float variance_threshold = .001;
+    constexpr float diff_threshold = .4;
+    if (variance > variance_threshold) {
+        cv::Mat temp_image(this->rows, this->cols, CV_32FC3);
+        const float *data = image.ptr<float>();
+        float *temp_data = temp_image.ptr<float>();
+        for (uint32_t i = 0; i < this->size; i++) {
+            *temp_data++ = *data++ / atmospheric_light[0];
+            *temp_data++ = *data++ / atmospheric_light[1];
+            *temp_data++ = *data++ / atmospheric_light[2];
+        }
+        transmission = get_dark_channel(temp_image, 15);
+        float *tran = transmission.ptr<float>();
+        for (uint32_t i = 0; i < this->size; i++) {
+            float diff = std::fabs(atmospheric_light[i % 3] - *dark++);
+            float data = 1 - .95 * (*tran);
+            diff < diff_threshold && (data *= diff_threshold / diff);
+            data > 1.0 && (data = 1.0);
+            *tran++ = data;
+        }
+    } else {
+        float *tran = transmission.ptr<float>();
+        for (uint32_t i = 0; i < this->size; i++) {
+            const float diff = std::fabs(approx_atmospheric_light - *dark);
+            float data = 1 - .95 * (*dark++) / approx_atmospheric_light;
+            diff < diff_threshold && (data *= diff_threshold / diff);
+            data > 1.0 && (data = 1.0);
+            *tran++ = data;
+        }
     }
     return transmission;
 }
@@ -154,7 +178,7 @@ cv::Mat DehazeImpl::get_dehazed_image(const cv::Mat &source_image) {
     const int32_t offset = image.ptr<float>() - dark_channel_start;
     std::vector<std::pair<float *, float *>> swap_stack;
     const cv::Vec3f atmospheric_light = get_atmospheric_light(dark_channel_start, offset, 0, this->size - 1, .001 * this->size, swap_stack);
-    const cv::Mat transmission = get_transmission(dark_channel, atmospheric_light);
+    const cv::Mat transmission = get_transmission(image, dark_channel, atmospheric_light);
     const cv::Mat fine_transmission = get_fine_transmission(image, transmission);
     recover_dehazed_image(image, fine_transmission, atmospheric_light);
     return image;
